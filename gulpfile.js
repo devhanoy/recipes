@@ -4,6 +4,7 @@ var debug = require('gulp-debug')
 var path = require('path')
 var gulpTypings = require("gulp-typings");
 var del = require('del');
+var runSequence = require('run-sequence');
 
 gulp.task('default', ['build'] );
 
