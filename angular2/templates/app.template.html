@@ -1,0 +1,30 @@
+<div>{{name}}</div>
+
+<div >
+    <div class='recipesContainer' *ngFor="#recipe of recipesList" (click)=showRecipe(recipe)>
+        <input type="checkbox" [(ngModel)]="recipe.selected"/> <span>{{recipe.name}}</span>   <span>{{recipe.category}}</span> <button (click)=showRecipeDetail(recipe)>Voir les détails</button>
+        <div *ngIf="recipe.displayed" class="recipeDescription">
+            {{recipe.shortDescription}}    
+        </div>
+    </div>
+</div>
+
+<div *ngIf="recipeDetail">    
+    <!--<img src="{{recipeDetail.imgUrl}}">-->
+    <div>{{recipeDetail.longDescription}}</div>
+    <div>
+        <ul >
+            <li *ngFor="#ingredient of recipeDetail.ingredientList">
+                {{ingredient.quantity}} {{ingredient.product.unity}} {{ingredient.product.name}}
+            </li>
+        </ul>
+    </div>
+    
+    <div>
+        <ol>
+            <li *ngFor="#step of recipeDetail.cookingSteps">
+                {{step}}
+            </li>
+        </ol>
+    </div>
+</div>
